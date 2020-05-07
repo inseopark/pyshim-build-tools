@@ -74,8 +74,9 @@ IF NOT EXIST "%~dp0..\lout" MKDIR "%~dp0..\lout"
 ECHO "layout_%_GET_PRODUCT_%: v%TMP_VS_TOOL_VERSION%" > %~dp0..\lout\layout_%_GET_PRODUCT_%_v%TMP_VS_TOOL_VERSION%
 
 :BUILDTOOLS
-IF /i "%_GET_PRODUCT_%" equ "buildtools"  ECHO "%_GET_PRODUCT_% downloading started... " && ^
-  %VS_DOWNLOADER_EXE% --layout %~dp0..\lout\%_GET_PRODUCT_%_v15 ^
+IF /i "%_GET_PRODUCT_%" equ "buildtools"  (
+	ECHO "%_GET_PRODUCT_% downloading started... "
+	%VS_DOWNLOADER_EXE% --layout %~dp0..\lout\%_GET_PRODUCT_%_v15 ^
   --add Microsoft.VisualStudio.Workload.VCTools ^
   --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 ^
   --add Microsoft.VisualStudio.Component.VC.140 ^
@@ -83,6 +84,7 @@ IF /i "%_GET_PRODUCT_%" equ "buildtools"  ECHO "%_GET_PRODUCT_% downloading star
   --add Microsoft.VisualStudio.Workload.ManagedDesktopBuildTools ^
   --add Microsoft.Net.Component.4.7.2.TargetingPack ^
   --lang %VS_ADD_LANG%
+ )
 
 IF /i "%_GET_PRODUCT_%" equ "express"  ( 
   ECHO "%_GET_PRODUCT_% downloading started... "
