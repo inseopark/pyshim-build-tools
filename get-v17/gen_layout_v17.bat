@@ -111,6 +111,9 @@ IF /i "%_GET_PRODUCT_%" equ "professional" (
   --add Component.Dotfuscator ^
   --add Microsoft.VisualStudio.Workload.Python ^
   --add Component.VisualStudio.GitHub.Copilot ^
+  --add Microsoft.VisualStudio.Component.VC.140 ^
+  --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 ^
+  --add Microsoft.VisualStudio.Component.VC.14.41.17.11.x86.x64 ^
   --lang %VS_ADD_LANG%
 )
 
